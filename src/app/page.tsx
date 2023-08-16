@@ -10,7 +10,7 @@ export type Point = {
 }
 
 export default function Home() {
-  const [userInput, setUserInput] = useState(3)
+  const [userInput, setUserInput] = useState('')
 
   const A: Point = {
     x: Math.cos(Math.PI / 2),
@@ -31,10 +31,12 @@ export default function Home() {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault()
+    if (!+userInput) return
+
     let changeData: Point[] = [A]
     do {
       const last = changeData[changeData.length - 1]
-      const rad = last.rad + (2 * Math.PI) / userInput
+      const rad = last.rad + (2 * Math.PI) / +userInput
       const point: Point = {
         x: Math.cos(rad),
         y: Math.sin(rad),
@@ -52,11 +54,10 @@ export default function Home() {
       <form onSubmit={submitHandler}>
         <input
           type='text'
-          name='number'
           value={userInput}
           className='input w-full max-w-xs'
           onChange={(e) => {
-            setUserInput(+e.target.value)
+            setUserInput(e.target.value)
           }}
         />
         <button className='btn btn-primary' type='submit'>
