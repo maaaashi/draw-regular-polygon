@@ -11,8 +11,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='ja'>
-      <body>{children}</body>
+    <html lang='ja' className='bg-slate-800'>
+      <body className='h-screen container mx-auto'>{children}</body>
     </html>
   )
 }

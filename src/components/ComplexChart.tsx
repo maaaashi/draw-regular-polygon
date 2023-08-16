@@ -34,13 +34,23 @@ const ComplexChart: FC<Props> = ({ data }) => {
   const options = {
     aspectRatio: 1,
     scales: {
-      y: {},
+      x: {
+        display: false,
+      },
+      y: {
+        display: false,
+      },
     },
-    label: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    responsive: true,
   }
 
   return (
-    <div className='w-2/5'>
+    <div className='w-52 md:w-96'>
       <Scatter data={chartData} options={options} />
     </div>
   )

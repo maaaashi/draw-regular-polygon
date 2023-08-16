@@ -10,7 +10,7 @@ export type Point = {
 }
 
 export default function Home() {
-  const [userInput, setUserInput] = useState('')
+  const [userInput, setUserInput] = useState('3')
 
   const A: Point = {
     x: Math.cos(Math.PI / 2),
@@ -31,7 +31,7 @@ export default function Home() {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault()
-    if (!+userInput) return
+    if (!+userInput || +userInput < 2) return
 
     let changeData: Point[] = [A]
     do {
@@ -49,9 +49,9 @@ export default function Home() {
   }
 
   return (
-    <main className='h-screen'>
+    <main className='flex flex-col items-center p-5 h-full'>
       <ComplexPlaneChart data={data} />
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} className='flex'>
         <input
           type='text'
           value={userInput}
