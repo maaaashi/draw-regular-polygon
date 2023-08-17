@@ -27,6 +27,7 @@ const ComplexChart: FC<Props> = ({ data }) => {
         borderColor: 'rgba(75,192,192,1)',
         borderWidth: 1,
         showLine: true,
+        pointRadius: 0,
       },
     ],
   }
@@ -36,22 +37,33 @@ const ComplexChart: FC<Props> = ({ data }) => {
     scales: {
       x: {
         display: false,
+        max: 1,
+        min: -1,
       },
       y: {
         display: false,
+        max: 1,
+        min: -1,
       },
     },
     plugins: {
       legend: {
         display: false,
       },
+      tooltip: {
+        enabled: false,
+      },
     },
     responsive: true,
   }
 
   return (
-    <div className='w-52 md:w-96'>
-      <Scatter data={chartData} options={options} />
+    <div className='pt-20 md:pt-40 pb-20 md:pb-40 w-52 md:w-96'>
+      <Scatter
+        data={chartData}
+        options={options}
+        className='aspect-square rotate-infinite'
+      />
     </div>
   )
 }
