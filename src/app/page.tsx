@@ -1,6 +1,7 @@
 'use client'
 
 import ComplexPlaneChart from '@/components/ComplexChart'
+import Header from '@/components/Header'
 import { FormEvent, useState } from 'react'
 
 export type Point = {
@@ -50,16 +51,21 @@ export default function Home() {
 
   return (
     <main className='flex flex-col items-center p-5 h-full'>
+      <h2>正n/m角形</h2>
       <ComplexPlaneChart data={data} />
-      <form onSubmit={submitHandler} className='flex'>
-        <input
-          type='text'
-          value={userInput}
-          className='input w-full max-w-xs'
-          onChange={(e) => {
-            setUserInput(e.target.value)
-          }}
-        />
+      <form onSubmit={submitHandler} className='flex items-center gap-5'>
+        <div>
+          <span>正</span>
+          <input
+            type='text'
+            value={userInput}
+            className='input input-bordered input-primary w-32'
+            onChange={(e) => {
+              setUserInput(e.target.value)
+            }}
+          />
+          <span>角形</span>
+        </div>
         <button className='btn btn-primary' type='submit'>
           作成
         </button>

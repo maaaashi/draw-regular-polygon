@@ -58,7 +58,7 @@ const ComplexChart: FC<Props> = ({ data }) => {
   }
 
   return (
-    <div className='pt-20 md:pt-40 pb-20 md:pb-40 w-52 md:w-96'>
+    <div className='w-52 md:w-96 p-5 aspect-square'>
       <Scatter
         data={chartData}
         options={options}
