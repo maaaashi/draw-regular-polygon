@@ -15,52 +15,15 @@ import { FC } from 'react'
 ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend)
 
 interface Props {
-  data: Point[]
+  data: any
+  options: any
 }
 
-const ComplexChart: FC<Props> = ({ data }) => {
-  const chartData = {
-    datasets: [
-      {
-        data,
-        backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: 'rgba(75,192,192,1)',
-        borderWidth: 1,
-        showLine: true,
-        pointRadius: 0,
-      },
-    ],
-  }
-
-  const options = {
-    aspectRatio: 1,
-    scales: {
-      x: {
-        display: false,
-        max: 1,
-        min: -1,
-      },
-      y: {
-        display: false,
-        max: 1,
-        min: -1,
-      },
-    },
-    plugins: {
-      legend: {
-        display: false,
-      },
-      tooltip: {
-        enabled: false,
-      },
-    },
-    responsive: true,
-  }
-
+const ComplexChart: FC<Props> = ({ data, options }) => {
   return (
     <div className='w-52 md:w-96 p-5 aspect-square'>
       <Scatter
-        data={chartData}
+        data={data}
         options={options}
         className='aspect-square rotate-infinite'
       />

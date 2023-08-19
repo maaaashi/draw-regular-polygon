@@ -1,7 +1,6 @@
 'use client'
 
 import ComplexPlaneChart from '@/components/ComplexChart'
-import Header from '@/components/Header'
 import { FormEvent, useState } from 'react'
 
 export type Point = {
@@ -30,6 +29,44 @@ export default function Home() {
   }
   const [data, setData] = useState<Point[]>([A, B, C, A])
 
+  const chartData = {
+    datasets: [
+      {
+        data,
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
+        borderWidth: 1,
+        showLine: true,
+        pointRadius: 0,
+      },
+    ],
+  }
+
+  const options = {
+    aspectRatio: 1,
+    scales: {
+      x: {
+        display: false,
+        max: 1,
+        min: -1,
+      },
+      y: {
+        display: false,
+        max: 1,
+        min: -1,
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        enabled: false,
+      },
+    },
+    responsive: true,
+  }
+
   const submitHandler = (e: FormEvent) => {
     e.preventDefault()
     if (!+userInput || +userInput < 2) return
@@ -52,7 +89,7 @@ export default function Home() {
   return (
     <main className='flex flex-col items-center p-5 h-full'>
       <h2>正n/m角形</h2>
-      <ComplexPlaneChart data={data} />
+      <ComplexPlaneChart data={chartData} options={options} />
       <form onSubmit={submitHandler} className='flex items-center gap-5'>
         <div>
           <span>正</span>

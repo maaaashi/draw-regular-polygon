@@ -7,8 +7,10 @@ const Footer = () => {
   const [pathname, setPathname] = useState('')
 
   const isActive = (href: string) => {
-    if (pathname === href) return 'active'
-    return ''
+    let className = 'pt-3 flex-1 flex justify-center'
+    if (pathname === href) className = className + ' border-t-2'
+
+    return className
   }
 
   useEffect(() => {
@@ -16,7 +18,7 @@ const Footer = () => {
   }, [])
 
   return (
-    <div className='btm-nav'>
+    <div className='flex w-full items-center justify-around pb-3 h-16'>
       <Link
         href='/'
         className={isActive('/')}
