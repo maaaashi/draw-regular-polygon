@@ -35,7 +35,7 @@ const Footer = () => {
           setPathname('/n-order-function')
         }}
       >
-        <button>n次関数</button>
+        <button>n/m次関数</button>
       </Link>
     </div>
   )

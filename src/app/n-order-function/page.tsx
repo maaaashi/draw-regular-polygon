@@ -108,7 +108,7 @@ const Home: FC = () => {
 
   return (
     <main className='flex flex-col items-center p-5 h-full'>
-      <h2>n次関数</h2>
+      <h2>n/m次関数</h2>
       <p>
         y = x<sup>n</sup>
       </p>
