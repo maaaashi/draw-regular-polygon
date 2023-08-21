@@ -111,6 +111,7 @@ const Graph: FC<Props> = ({ equation }) => {
       <ComplexPlaneChart data={chartData} options={options} />
       <form onSubmit={submitHandler} className='flex items-center gap-5'>
         <div>
+          <span>n = </span>
           <input
             type='text'
             value={userInput}
@@ -119,7 +120,6 @@ const Graph: FC<Props> = ({ equation }) => {
               setUserInput(e.target.value)
             }}
           />
-          <span>次関数</span>
         </div>
         <button className='btn btn-primary' type='submit'>
           作成

@@ -66,7 +66,9 @@ const Home: FC = () => {
           log<sub>e</sub>x
         </a>
       </div>
-      <Graph type={tab} />
+      <div className='flex flex-col items-center'>
+        <Graph type={tab} />
+      </div>
     </main>
   )
 }
