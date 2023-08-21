@@ -1,6 +1,7 @@
 'use client'
 
 import ComplexPlaneChart from '@/components/ComplexChart'
+import { decimalCount } from '@/libs/decimalCount'
 import { FormEvent, useState } from 'react'
 
 export type Point = {
@@ -35,7 +36,7 @@ export default function Home() {
         data,
         backgroundColor: 'rgba(75,192,192,0.4)',
         borderColor: 'rgba(75,192,192,1)',
-        borderWidth: 1,
+        borderWidth: 0.5,
         showLine: true,
         pointRadius: 0,
       },
@@ -71,10 +72,16 @@ export default function Home() {
     e.preventDefault()
     if (!+userInput || +userInput < 2) return
 
+    let target = +userInput
+
+    if (3 < decimalCount(userInput)) {
+      target = Math.floor(+userInput)
+    }
+
     let changeData: Point[] = [A]
     do {
       const last = changeData[changeData.length - 1]
-      const rad = last.rad + (2 * Math.PI) / +userInput
+      const rad = last.rad + (2 * Math.PI) / target
       const point: Point = {
         x: Math.cos(rad),
         y: Math.sin(rad),
