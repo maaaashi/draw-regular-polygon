@@ -1,11 +1,11 @@
-# WIP: Graw Various figures
+# Graw Various figures
 
 <div><img src="./docs/main.png" /></div>
 
 <div align="center">This repository is for a game where you can play the game of Reversi with ChatGPT. It was created based on the principles of clean architecture.</div>
 <div align="center">It is currently under development.</div>
 
-- [WIP: Graw Various figures](#wip-graw-various-figures)
+- [Graw Various figures](#graw-various-figures)
 - [Installation](#installation)
 - [Usage](#usage)
 
